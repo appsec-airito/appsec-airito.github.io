@@ -1,0 +1,16 @@
+---
+import { SITE } from '../site.config';
+const year = new Date().getFullYear();
+const { github, linkedin, twitter } = SITE.socials;
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© {year} {SITE.name}</span>
+    <span>
+      {github && <a href={github}>GitHub</a>}
+      {linkedin && <> · <a href={linkedin}>LinkedIn</a></>}
+      {twitter && <> · <a href={twitter}>X</a></>}
+      {SITE.email && <> · <a href={`mailto:${SITE.email}`}>Email</a></>}
+    </span>
+  </div>
+</footer>

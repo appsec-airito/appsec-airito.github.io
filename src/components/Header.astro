@@ -1,0 +1,16 @@
+---
+import { SITE, href } from '../site.config';
+const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href={href('/')}>{SITE.name.split(' ')[0]}<span class="accent"> {SITE.name.split(' ').slice(1).join(' ')}</span></a>
+    <nav class="nav">
+      <a href={href('/')} aria-current={path === base ? 'page' : undefined}>Home</a>
+      <a href={href('/about')} aria-current={path.startsWith(base + 'about') ? 'page' : undefined}>About</a>
+      {/* Writing/blog nav hidden until first post is published — re-add:
+      <a href={href('/blog')} aria-current={path.startsWith(base + 'blog') ? 'page' : undefined}>Writing</a> */}
+    </nav>
+  </div>
+</header>

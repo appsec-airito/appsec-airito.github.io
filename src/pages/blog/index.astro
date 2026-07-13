@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { href } from '../../site.config';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<BaseLayout title="Writing" description="Ideas and perspectives on modern security.">
+  <section class="article">
+    <div class="wrap">
+      <span class="section-title">Writing</span>
+      <h1>Ideas &amp; perspectives</h1>
+      <p class="dim">Thoughts on security engineering, leadership, and where the field is heading.</p>
+
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li class="post-item">
+            <a class="title" href={href(`/blog/${post.id}/`)}>{post.data.title}</a>
+            <div class="post-meta">{fmt(post.data.pubDate)}</div>
+            <p>{post.data.description}</p>
+            {post.data.tags.length > 0 && (
+              <div class="tags">{post.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

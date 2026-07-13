@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, href } from '../site.config';
+
+const stats = [
+  { num: '15+', label: 'years in security' },
+  { num: '1,200+', label: 'apps threat-modeled' },
+  { num: '700+', label: 'practitioners enabled' },
+];
+
+const experience = [
+  {
+    date: '2023 — Present', role: 'Security Engineer Lead', at: 'Amazon',
+    detail: 'Leading secure cloud migration and automated, continuous security certification across the application portfolio. Built automation that cut Privacy review effort 50% and Incident Response review effort 30%. In separate work, threat-modeled 95+ applications through the legacy data-center-to-AWS migration.',
+  },
+  {
+    date: '2019 — 2023', role: 'Senior Security Researcher', at: 'Adobe',
+    detail: 'Scaled threat modeling, Secure Product Life Cycle, and pre-audit automation across 100+ products and 700+ practitioners, supporting a system that handled 1,000+ threat models.',
+  },
+  {
+    date: '2017 — 2019', role: 'Senior Security Engineer', at: 'Securonix',
+    detail: 'Built a PySpark detection-engineering framework that drove multi-million-dollar revenue — years before AI and LLMs reached security. Also delivered 120+ presales assessments and engineered 200+ custom detection rules.',
+  },
+  {
+    date: '2016 — 2017', role: 'Global IT Security Engineer', at: 'Mattel',
+    detail: 'Ran vulnerability management across 1,600+ AWS instances against OWASP, SANS, and NIST 800-53.',
+  },
+  {
+    date: '2011 — 2015', role: 'System & Network Admin Manager', at: 'Sophie & Associates',
+    detail: 'Led a 20-person IT team securing 40+ servers and network systems.',
+  },
+];
+
+const focus = [
+  { h: 'Cloud security at scale', p: 'Securing enterprise cloud migrations and automating continuous certification across large application portfolios.' },
+  { h: 'AI-driven threat modeling', p: 'Scaling threat modeling and Secure Product Life Cycle practices across hundreds of products and 700+ practitioners.' },
+  { h: 'Leadership & strategy', p: 'Building high-performing teams and turning security from a cost center into a competitive advantage.' },
+];
+
+const tech = ['AWS', 'Azure', 'Python', 'Bash', 'Docker', 'Kubernetes', 'NIST', 'OWASP', 'ISO 27001', 'PCI', 'HIPAA'];
+
+const beyond = [
+  { h: 'Home lab & self-hosted AI', p: 'Runs a private, self-hosted LLM on a home network — staying hands-on with the technology I secure by day and building the things I want to understand from the inside out.' },
+  { h: 'Founder & operator', p: 'Built a short-term-rental portfolio from the ground up and runs it through a team of managers — leadership on the business side, not just the security side.' },
+  { h: 'Giving back', p: 'Volunteers with and contributes to nonprofit organizations.' },
+];
+---
+<BaseLayout title="About">
+  <section class="profile-hero">
+    <div class="wrap">
+      <span class="role">{SITE.role}</span>
+      <h1>{SITE.name}</h1>
+      <p class="lead">
+        Across more than 15 years in security — over a decade of it full-time — I've secured
+        cloud environments at enterprise scale for Amazon, Adobe, Securonix, and Mattel. I work
+        where engineering rigor meets security
+        strategy, building the automation, threat models, and secure-by-design practices that
+        let large organizations ship quickly without compromising safety.
+      </p>
+      <div class="stats">
+        {stats.map((s) => (
+          <div class="stat"><span class="num">{s.num}</span><span class="label">{s.label}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">What I focus on</span>
+      <p class="note" style="color:var(--text); font-size:1.05rem;">
+        I care about the decisions that separate genuinely resilient organizations from merely
+        compliant ones — cloud security at scale, AI-driven threat modeling, and security
+        automation, plus the teams and repeatable processes that turn security from a cost
+        center into a competitive advantage.
+      </p>
+      <div class="grid">
+        {focus.map((f) => (
+          <div class="card"><h3>{f.h}</h3><p>{f.p}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">Experience</span>
+      <ol class="timeline">
+        {experience.map((e) => (
+          <li class="tl-item">
+            <div class="tl-date">{e.date}</div>
+            <div class="tl-role">{e.role} <span class="at">· {e.at}</span></div>
+            <p>{e.detail}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">Toolkit</span>
+      <div class="chips">
+        {tech.map((t) => <span class="chip tech">{t}</span>)}
+      </div>
+      <p class="note">
+        I work across cloud and data centers, Python and Bash automation, containers and
+        Kubernetes, and the frameworks that govern enterprise risk — NIST, OWASP, ISO 27001, PCI,
+        and HIPAA. But the tools are the easy part. The hard part is translating security into
+        what the business is actually trying to do, and that intersection of deep technical work
+        and business fluency is where I do my best work.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">Beyond the day job</span>
+      <p class="note">
+        The dual background isn't just a résumé line — it's how I actually spend my time. I build,
+        I operate, and I stay close to the technology.
+      </p>
+      <div class="grid">
+        {beyond.map((b) => (
+          <div class="card"><h3>{b.h}</h3><p>{b.p}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">Credentials</span>
+      <div class="chips">
+        <span class="chip cert">CISSP</span>
+        <span class="chip cert">CEH</span>
+        <span class="chip">MS · Cyber Security Engineering, USC</span>
+        <span class="chip">BEng · VIT University</span>
+        <span class="chip">Ignite · Stanford Graduate School of Business</span>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

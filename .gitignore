@@ -1,0 +1,22 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env & logs
+.env
+.env.production
+npm-debug.log*
+.DS_Store
+
+# resume/CV staging — contains PII, must never be committed or published
+uploads/
+
+# graphify cache & reports (regenerated locally, contains paths of ignored files)
+graphify-out/
+
+# local IDE/assistant workspace configurations
+.claude/
+

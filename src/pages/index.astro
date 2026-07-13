@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, href } from '../site.config';
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="wrap">
+      <span class="role">{SITE.role}</span>
+      <h1>{SITE.name}</h1>
+      <p class="tagline">{SITE.tagline}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={href('/about')}>About me</a>
+        {SITE.email && <a class="btn btn-ghost" href={`mailto:${SITE.email}`}>Get in touch</a>}
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section>
+    <div class="wrap">
+      <span class="section-title">What I focus on</span>
+      <div class="grid">
+        <div class="card">
+          <h3>Cloud security at scale</h3>
+          <p>Securing enterprise cloud migrations and automating continuous certification across large application portfolios.</p>
+        </div>
+        <div class="card">
+          <h3>AI-driven threat modeling</h3>
+          <p>Scaling threat modeling and Secure Product Life Cycle practices across hundreds of products and 700+ practitioners.</p>
+        </div>
+        <div class="card">
+          <h3>Leadership &amp; strategy</h3>
+          <p>Building high-performing teams and turning security from a cost center into a competitive advantage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>

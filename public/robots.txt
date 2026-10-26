@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://appsec-airito.github.io/sitemap-index.xml
+Sitemap: https://our2cents.org/sitemap-index.xml
